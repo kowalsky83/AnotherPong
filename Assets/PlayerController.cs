@@ -29,13 +29,11 @@ public class PlayerController : MonoBehaviour
 
     void ControlPlayerUno(){
         if(Input.GetKey(KeyCode.UpArrow)){
-            positionPlayerUno.y += Speed * Time.deltaTime;
-            playerUno.transform.position = positionPlayerUno;
+            MovePlayer(1);
         }
 
         if(Input.GetKey(KeyCode.DownArrow)){
-            positionPlayerUno.y += -Speed * Time.deltaTime;
-            playerUno.transform.position = positionPlayerUno;
+            MovePlayer(-1);
         }
 
         if(positionPlayerUno.y >= MaxMovement){
@@ -46,18 +44,19 @@ public class PlayerController : MonoBehaviour
             positionPlayerUno.y = -MaxMovement;
         }
 
-        
+        void MovePlayer(int dir){
+            positionPlayerUno.y += dir * Speed * Time.deltaTime;
+            playerUno.transform.position = positionPlayerUno;
+        }
     }
 
     void ControlPlayerDos(){
         if(Input.GetKey(KeyCode.W)){
-            positionPlayerDos.y += Speed * Time.deltaTime;
-            playerDos.transform.position = positionPlayerDos;
+            MovePlayer(1);
         }
 
         if(Input.GetKey(KeyCode.S)){
-            positionPlayerDos.y += -Speed * Time.deltaTime;
-            playerDos.transform.position = positionPlayerDos;
+            MovePlayer(-1);
         }
 
         if(positionPlayerDos.y >= MaxMovement){
@@ -66,6 +65,11 @@ public class PlayerController : MonoBehaviour
 
         if(positionPlayerDos.y <= -MaxMovement){
             positionPlayerDos.y = -MaxMovement;
+        }
+
+        void MovePlayer(int dir){
+            positionPlayerDos.y += dir * Speed * Time.deltaTime;
+            playerDos.transform.position = positionPlayerDos;
         }
     }
 
