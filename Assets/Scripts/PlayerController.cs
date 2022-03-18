@@ -7,17 +7,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject playerUno;
     [SerializeField] GameObject playerDos;
 
+    private Rigidbody2D playerRb;
+
     private Vector2 positionPlayerUno;
     private Vector2 positionPlayerDos;
 
     public float Speed = 3f;
-    public float MaxMovement = 4.0f;
+    public float MaxMovement = 5.5f;
     
     // Start is called before the first frame update
     void Start()
     {
         positionPlayerUno = playerUno.GetComponent<Transform>().position;
         positionPlayerDos = playerDos.GetComponent<Transform>().position;
+        playerRb = playerUno.GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
