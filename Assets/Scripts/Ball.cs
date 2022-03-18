@@ -7,10 +7,13 @@ public class Ball : MonoBehaviour
     private Rigidbody2D ballRb;
     private Vector2 ballVelocity;
     [SerializeField] private float velocidadInicial = 4.0f;
+
+    private GameManager gameManager;
     
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         ballRb = GetComponent<Rigidbody2D>();
         StartMove();
     }
@@ -30,7 +33,7 @@ public class Ball : MonoBehaviour
         if(other.gameObject.name == "Player1" || other.gameObject.name == "Player2"){
             ballVelocity += ballVelocity.normalized * 0.5f;
         }else{
-            ballVelocity += ballVelocity.normalized * 0.01f;
+            ballVelocity += ballVelocity.normalized * 0.05f;
         }
 
         if (Vector2.Dot(ballVelocity.normalized, Vector2.left) < 0.1f)
@@ -50,6 +53,14 @@ public class Ball : MonoBehaviour
     //Add Points
     private void OnTriggerEnter2D(Collider2D other) {
         Debug.Log(other.gameObject.name);
+        if(other.gameObject.name == "WallRight"){
+            gameManager.UpdateScorePLayer1(1);
+            Destroy(gameObject);
+        }
+        if(other.gameObject.name == "WallLeft"){
+            gameManager.UpdateScorePLayer2(1);
+            Destroy(gameObject);
+        }
     }
 
     public void StartMove(){    

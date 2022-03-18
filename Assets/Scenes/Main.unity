@@ -152,6 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6bbfca0bc4d484c9527e4ecde169b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePLayer1: {fileID: 773752014}
+  scorePLayer2: {fileID: 28320791}
 --- !u!4 &6225375
 Transform:
   m_ObjectHideFlags: 0
@@ -798,7 +800,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -0.5, y: -0.6}
-  - {x: 0, y: 0}
+  - {x: 0.5, y: 0}
   - {x: -0.5, y: 0.6}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
@@ -2292,6 +2294,7 @@ GameObject:
   - component: {fileID: 2136480885}
   - component: {fileID: 2136480888}
   - component: {fileID: 2136480889}
+  - component: {fileID: 2136480887}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -2364,6 +2367,29 @@ Transform:
   m_Father: {fileID: 154335634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &2136480887
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136480884}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.5, y: -0.6}
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0.6}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!50 &2136480888
 Rigidbody2D:
   serializedVersion: 4
@@ -2372,7 +2398,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136480884}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2392,7 +2418,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136480884}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
