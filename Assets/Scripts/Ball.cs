@@ -47,7 +47,6 @@ public class Ball : MonoBehaviour
 
     //Add Points
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log(other.gameObject.name);
         if(other.gameObject.name == "WallRight"){
             gameManager.UpdateScorePLayer1(1);
             Destroy(gameObject);

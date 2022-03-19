@@ -11,6 +11,7 @@ public class MenuControll : MonoBehaviour
     [SerializeField] private GameObject options;
     [SerializeField]  private TMP_InputField playerName1;
     [SerializeField]  private TMP_InputField playerName2;
+    [SerializeField]  private TMP_InputField sets;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,15 +34,28 @@ public class MenuControll : MonoBehaviour
 
     public void OnePlayer(){
         options.SetActive(true);
+        playerName1.text = "";
         playerName2.text = "CPU";
         playerName2.readOnly = true;
+        MainManager.Instance.isCPUActive = true;
     }
 
     public void TwoPlayer(){
         options.SetActive(true);
+        playerName1.text = "";
+        playerName2.text = "";
+        playerName2.readOnly = false;
+        MainManager.Instance.isCPUActive = false;
     }
 
     public void HideOptions(){
         options.SetActive(false);
+    }
+
+    public void StartGame(){
+        MainManager.Instance.playerOneName = playerName1.text;
+        MainManager.Instance.playerTwoName = playerName2.text;
+        MainManager.Instance.setsNumber = sets.text.Length > 0 ? sets.text : "5";
+        SceneManager.LoadScene(1);
     }
 }

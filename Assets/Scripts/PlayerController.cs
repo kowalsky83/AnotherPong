@@ -14,28 +14,39 @@ public class PlayerController : MonoBehaviour
 
     public float Speed = 3f;
     public float MaxMovement = 5.5f;
+
+    private GameManager gameManager;
+
+    private bool isCPUActive;
     
     // Start is called before the first frame update
     void Start()
     {
         positionPlayerUno = playerUno.GetComponent<Transform>().position;
         positionPlayerDos = playerDos.GetComponent<Transform>().position;
-        playerRb = playerUno.GetComponent<Rigidbody2D>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        isCPUActive = true;//MainManager.Instance.isCPUActive;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ControlPlayerUno();
-        ControlPlayerDos();
+        if(gameManager.isInProgress){
+            ControlPlayerUno();
+            if(isCPUActive){
+
+            }else{
+                ControlPlayerDos();
+            }
+        }
     }
 
     void ControlPlayerUno(){
-        if(Input.GetKey(KeyCode.UpArrow)){
+        if(Input.GetKey(KeyCode.W)){
             MovePlayer(1);
         }
 
-        if(Input.GetKey(KeyCode.DownArrow)){
+        if(Input.GetKey(KeyCode.S)){
             MovePlayer(-1);
         }
 
@@ -54,11 +65,11 @@ public class PlayerController : MonoBehaviour
     }
 
     void ControlPlayerDos(){
-        if(Input.GetKey(KeyCode.W)){
+        if(Input.GetKey(KeyCode.UpArrow)){
             MovePlayer(1);
         }
 
-        if(Input.GetKey(KeyCode.S)){
+        if(Input.GetKey(KeyCode.DownArrow)){
             MovePlayer(-1);
         }
 
