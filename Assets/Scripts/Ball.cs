@@ -6,7 +6,7 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody2D ballRb;
     private Vector2 ballVelocity;
-    [SerializeField] private float velocidadInicial = 4.0f;
+    [SerializeField] private float velocidadInicial = 5.0f;
 
     private GameManager gameManager;
     
@@ -34,11 +34,6 @@ public class Ball : MonoBehaviour
             ballVelocity += ballVelocity.normalized * 0.5f;
         }else{
             ballVelocity += ballVelocity.normalized * 0.05f;
-        }
-
-        if (Vector2.Dot(ballVelocity.normalized, Vector2.left) < 0.1f)
-        {
-            ballVelocity += ballVelocity.y > 0 ? Vector2.left * 0.5f : Vector2.right * 0.5f;
         }
 
         //max ballVelocity
