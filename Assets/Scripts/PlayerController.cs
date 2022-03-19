@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         positionPlayerUno = playerUno.GetComponent<Transform>().position;
         positionPlayerDos = playerDos.GetComponent<Transform>().position;
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        isCPUActive = true;//MainManager.Instance.isCPUActive;
+        isCPUActive = MainManager.Instance.isCPUActive;
     }
 
     // Update is called once per frame

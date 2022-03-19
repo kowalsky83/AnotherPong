@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nameTextPlayer1.text = "Player1"; //MainManager.Instance.playerOneName.Length > 0 ? MainManager.Instance.playerOneName : "Player1";
-        nameTextPlayer2.text = "CPU";//MainManager.Instance.playerTwoName.Length > 0 ? MainManager.Instance.playerTwoName : "Player2";
-        maxScore = "2";//MainManager.Instance.setsNumber.ToString();
+        nameTextPlayer1.text = MainManager.Instance.playerOneName.Length > 0 ? MainManager.Instance.playerOneName : "Player1";
+        nameTextPlayer2.text = MainManager.Instance.playerTwoName.Length > 0 ? MainManager.Instance.playerTwoName : "Player2";
+        maxScore = MainManager.Instance.setsNumber.ToString();
         StartBallMove();
     }
 
