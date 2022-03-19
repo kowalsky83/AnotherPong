@@ -15,7 +15,7 @@ public class MenuControll : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        MainManager.Instance.LoadData();
     }
 
     // Update is called once per frame

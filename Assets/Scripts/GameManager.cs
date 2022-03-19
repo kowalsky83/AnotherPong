@@ -79,6 +79,16 @@ public class GameManager : MonoBehaviour
         finalScore.text = nameTextPlayer1.text + " " + scoreTextPlayer1.text + " - " + scoreTextPlayer2.text + " " + nameTextPlayer2.text;
         endGameUi.SetActive(true);
         WinParticles.Play();
+        SaveResults(winnerName);
+    }
+
+    void SaveResults(string winnerName){
+        //players names and set naumbers already saved (betwenn scenes);
+        MainManager.Instance.score1 =  scoreTextPlayer1.text;
+        MainManager.Instance.score2 =  scoreTextPlayer2.text;
+        MainManager.Instance.winner = winnerName;
+
+        MainManager.Instance.SaveData();
     }
 
     void ResetBall(){
