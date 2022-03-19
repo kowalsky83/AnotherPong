@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c6bbfca0bc4d484c9527e4ecde169b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 2418017102242073177, guid: 6766dc719ed25ab4089361f2a16d2eee, type: 3}
+  ball: {fileID: 1616450493}
   nets: {fileID: 1762561114}
   inGameUi: {fileID: 1012414376}
   endGameUi: {fileID: 711731210}
@@ -5499,6 +5499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUno: {fileID: 2136480884}
   playerDos: {fileID: 276648069}
+  ball: {fileID: 1616450493}
   Speed: 5.5
   MaxMovement: 4
 --- !u!4 &154335634
@@ -7308,6 +7309,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1616450493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2418017102242073177, guid: 6766dc719ed25ab4089361f2a16d2eee, type: 3}
+  m_PrefabInstance: {fileID: 2418017101243237728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1684730302
 GameObject:
   m_ObjectHideFlags: 0

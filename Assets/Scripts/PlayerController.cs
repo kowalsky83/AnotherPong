@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject playerUno;
     [SerializeField] GameObject playerDos;
 
-    private Rigidbody2D playerRb;
+    [SerializeField] private GameObject ball;
 
     private Vector2 positionPlayerUno;
     private Vector2 positionPlayerDos;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
         if(gameManager.isInProgress){
             ControlPlayerUno();
             if(isCPUActive){
-
+                CPUControl();
             }else{
                 ControlPlayerDos();
             }
@@ -85,6 +85,34 @@ public class PlayerController : MonoBehaviour
             positionPlayerDos.y += dir * Speed * Time.deltaTime;
             playerDos.transform.position = positionPlayerDos;
         }
+    }
+
+    void CPUControl(){
+
+        int dir = 0;
+
+        float diff = positionPlayerDos.y - ball.transform.position.y;
+        float distance = Random.Range(0.5f, 0.6f);
+
+        if(diff > - distance && diff < distance){
+            dir = 0;
+        }else if(diff > distance ){
+            dir = -1; 
+        }else if(diff < -distance ){
+            dir = 1; 
+        }
+
+        positionPlayerDos.y += dir * (Speed + 1.2f) * Time.deltaTime;
+        playerDos.transform.position = positionPlayerDos;
+
+        if(positionPlayerDos.y >= MaxMovement){
+            positionPlayerDos.y = MaxMovement;
+        }
+
+        if(positionPlayerDos.y <= -MaxMovement){
+            positionPlayerDos.y = -MaxMovement;
+        }
+
     }
 
 }

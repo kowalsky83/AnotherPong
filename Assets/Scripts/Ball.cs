@@ -6,7 +6,6 @@ public class Ball : MonoBehaviour
 {
     private Rigidbody2D ballRb;
     private Vector2 ballVelocity;
-    [SerializeField] private float velocidadInicial = 5.0f;
 
     private GameManager gameManager;
     
@@ -15,7 +14,6 @@ public class Ball : MonoBehaviour
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         ballRb = GetComponent<Rigidbody2D>();
-        StartMove();
     }
 
     // Update is called once per frame
@@ -49,18 +47,9 @@ public class Ball : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.name == "WallRight"){
             gameManager.UpdateScorePLayer1(1);
-            Destroy(gameObject);
         }
         if(other.gameObject.name == "WallLeft"){
             gameManager.UpdateScorePLayer2(1);
-            Destroy(gameObject);
         }
-    }
-
-    public void StartMove(){    
-        float[] xyStart = {-1.0f,-0.9f,-0.8f,-0.8f,-0.7f,0.7f,0.8f,0.9f,1.0f};
-        Vector2 forceDir = new Vector2(xyStart[Random.Range(0, 8)], xyStart[Random.Range(0, 8)]);
-        forceDir.Normalize();
-        ballRb.AddForce(forceDir * velocidadInicial, ForceMode2D.Impulse);
     }
 }
