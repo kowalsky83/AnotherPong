@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
         Destroy(ball);
         nets.SetActive(false);
         inGameUi.SetActive(false);
-        winner.text = winnerName + " winner";
+        winner.text = winnerName + " wins";
         finalScore.text = nameTextPlayer1.text + " " + scoreTextPlayer1.text + " - " + scoreTextPlayer2.text + " " + nameTextPlayer2.text;
         endGameUi.SetActive(true);
         WinParticles.Play();

@@ -9,13 +9,15 @@ using UnityEditor;
 public class MenuControll : MonoBehaviour
 {
     [SerializeField] private GameObject options;
+    [SerializeField] private GameObject gamesList;
     [SerializeField]  private TMP_InputField playerName1;
     [SerializeField]  private TMP_InputField playerName2;
     [SerializeField]  private TMP_InputField sets;
+
     // Start is called before the first frame update
     void Start()
     {
-        MainManager.Instance.LoadData();
+
     }
 
     // Update is called once per frame
@@ -52,10 +54,25 @@ public class MenuControll : MonoBehaviour
         options.SetActive(false);
     }
 
+    public void ShowGamesList(){
+        gamesList.SetActive(true);
+
+        
+    }
+
+    public void HideGamesList(){
+        gamesList.SetActive(false);
+    }
+
     public void StartGame(){
         MainManager.Instance.playerOneName = playerName1.text;
         MainManager.Instance.playerTwoName = playerName2.text;
         MainManager.Instance.setsNumber = sets.text.Length > 0 ? sets.text : "5";
         SceneManager.LoadScene(1);
+    }
+
+    IEnumerator WaitLoadData(){
+        yield return new WaitForSeconds(2.0f);
+        
     }
 }
